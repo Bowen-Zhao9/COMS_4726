@@ -2,22 +2,36 @@
 ## Bowen Zhao <br> UNI: bz2594
 
 ### Chain Rule & Weight Updates
-The network defined in lecture is $$z = w_1 x + b_1,\quad h = ReLU(z), \quad y = w_2 h + b_2$$
-The loss function is $$L = \frac{1}{2}(y - t)^2$$
+The network defined in lecture is 
+```math 
+z = w_1 x + b_1,\quad h = ReLU(z), \quad y = w_2 h + b_2
+```
+The loss function is
+```math 
+L = \frac{1}{2}(y - t)^2
+```
 By applying the chain rule, we can find $\frac{\partial L}{\partial w_1}$ by 
-$$\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y} \frac{\partial y}{\partial h} \frac{\partial h}{\partial z} \frac{\partial z}{\partial w_1}$$
+```math
+\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y} \frac{\partial y}{\partial h} \frac{\partial h}{\partial z} \frac{\partial z}{\partial w_1}
+```
 
 To find the individual derivatives:
 
-$$\frac{\partial L}{\partial y}  = \frac{1}{2} \times 2(y - t) = y - t$$
+```math
+\frac{\partial L}{\partial y}  = \frac{1}{2} \times 2(y - t) = y - t
+```
 
-$$\frac{\partial y}{\partial h} = w_2$$
+```math
+\frac{\partial y}{\partial h} = w_2
+```
 
 ```math
 \frac{\partial h}{\partial z} = \begin{cases} 1, z > 0 \\ 0, z \le 0\end{cases}
 ```
 
-$$\frac{\partial z}{\partial w_1} = x$$
+```math 
+\frac{\partial z}{\partial w_1} = x
+```
 
 Thus
 ```math
@@ -28,7 +42,10 @@ Thus
 ### Gradient Descent
 The gradient of a function $L$ is the vector constituted by $\frac{\partial L}{\partial x}$ and $\frac{\partial L}{\partial y}$. This vector, the gradient, points to the direction where the function $L$ increases at the fastest rate. Hence, its opposite direction is the fastest decreaseing direction. If the function $L$ is the loss function, the negative gradient takes us to a local minimum that minimizes the loss function. The gradient tells us the direction to minimize the loss function, and a step size small enough makes sure that we are approaching the local minimum.
 
-So we have this weight update rule taking the learning rate $\eta$ into consideration: $$w_{new} = w_{old} - \eta \frac{\partial L}{\partial w}$$
+So we have this weight update rule taking the learning rate $\eta$ into consideration: 
+```math 
+w_{new} = w_{old} - \eta \frac{\partial L}{\partial w}
+```
 
 Intuitively speaking, when the learning rate is too large, the loss function may cross the local minimum, and then the new gradient points back, but again the too-big learning rate causes the function to pass the local minimum again, and this cycle repeats. Oscillation then occurs. 
 
@@ -38,12 +55,24 @@ For example,
 ```math
 L(w) = w^2 \quad \frac {\partial L}{\partial w} = 2w
 ```
-If $$\eta = 0.1$$
-then $$w_{new} = 0.8w_{old}$$
+If 
+```math
+\eta = 0.1
+```
+then 
+```math 
+w_{new} = 0.8w_{old}
+```
 so $w$ gradually approaches 0
 
 
-But if $$\eta = 1.1$$
-then $$w_{new} = -1.2w_{old}$$
+But if 
+```math
+\eta = 1.1
+```
+then 
+```math 
+w_{new} = -1.2w_{old}
+```
 and the $w$ gets larger and larger and diverges.
 This illustrates how a large-enough $\eta$ could lead to the failure of gradient descent.
