@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+._*
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Coverage and logs
+.coverage
+htmlcov/
+*.log
