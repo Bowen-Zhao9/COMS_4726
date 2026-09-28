@@ -34,7 +34,10 @@ Intuitively speaking, when the learning rate is too large, the loss function may
 
 When this jumping back-and-forth happens and the loss becomes larger, gradient descent fails to converge. A learning rate that is large enough can take the loss fucntion away from the local minimum, thus leading to divergence.
 
-For example, $$ L(w) = w^2 \quad \frac {\partial L}{\partial w} = 2w$$
+For example,
+```math
+L(w) = w^2 \quad \frac {\partial L}{\partial w} = 2w
+```
 If $$\eta = 0.1$$
 then $$w_{new} = 0.8w_{old}$$
 so $w$ gradually approaches 0
