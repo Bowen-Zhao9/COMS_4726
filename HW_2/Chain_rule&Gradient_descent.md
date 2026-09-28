@@ -9,16 +9,20 @@ $$\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial y} \frac{\partial
 
 To find the individual derivatives:
 
-$$\frac{\partial L}{\partial w_1}  = \frac{1}{2} \times 2(y - t) = y - t$$
+$$\frac{\partial L}{\partial y}  = \frac{1}{2} \times 2(y - t) = y - t$$
 
 $$\frac{\partial y}{\partial h} = w_2$$
 
-$$\frac{\partial h}{\partial z} = \begin{cases} 1, z > 0 \\ 0, z \le 0\end{cases}$$
+```math
+\frac{\partial h}{\partial z} = \begin{cases} 1, z > 0 \\ 0, z \le 0\end{cases}
+```
 
 $$\frac{\partial z}{\partial w_1} = x$$
 
 Thus
-$$\frac{\partial L}{\partial w_1} = \begin{cases}(y - t) w_2  x,& z = w_1 x + b_1 > 0 \\ 0,& z = w_1 x + b_1 \le 0\end{cases}$$
+```math
+\frac{\partial L}{\partial w_1} = \begin{cases}(y - t) w_2  x,& z = w_1 x + b_1 > 0 \\ 0,& z = w_1 x + b_1 \le 0\end{cases}
+```
 
 
 ### Gradient Descent
